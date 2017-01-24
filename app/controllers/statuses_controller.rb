@@ -66,7 +66,7 @@ class StatusesController < ApplicationController
 
   def upload_csv_file
     file = params[:csv_file]
-    Status.import file
+    Status.import_csv file
     redirect_to statuses_url, notice: 'CSV file uploaded.'
   end
 
