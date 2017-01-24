@@ -70,6 +70,31 @@ class StatusesController < ApplicationController
     redirect_to statuses_url, notice: 'CSV file uploaded.'
   end
 
+  def query
+
+    object_type = params[:object_type]
+    object_id = params[:object_id]
+    timestamp = Time.new(params[:ts][:year].to_i,
+                            params[:ts][:month].to_i,
+                            params[:ts][:day].to_i,
+                            params[:ts][:hour].to_i,
+                            params[:ts][:minute].to_i,
+                            params[:ts][:second].to_i)
+
+    result = Status.where(object_id: object_id, object_type: object_type).
+                    where("timestamp <= ?", timestamp).
+                    order("timestamp DESC")
+
+    # puts ">>>>>>>>>>> #{result.size}, ts = #{timestamp}"
+
+    @state_result = {}
+
+    result.each do |s|
+      @state_result = @state_result.merge(s.state)
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
