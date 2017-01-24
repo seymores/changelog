@@ -61,6 +61,13 @@ class StatusesController < ApplicationController
     end
   end
 
+  def upload
+  end
+
+  def upload_csv_file
+    redirect_to statuses_url, notice: 'CSV file uploaded.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status

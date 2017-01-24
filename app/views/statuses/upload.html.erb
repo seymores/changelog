@@ -1,0 +1,12 @@
+<h2>Upload CSV</h2>
+
+<%= form_tag(controller: "statuses", action: "upload_csv_file", multipart: true, method: "post") do %>
+
+<div class="field">
+<%= file_field_tag 'csv_file' %>
+</div>
+
+<div class="actions">
+    <%= submit_tag %>
+</div>
+<% end %>
