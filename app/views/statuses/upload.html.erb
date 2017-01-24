@@ -1,6 +1,6 @@
 <h2>Upload CSV</h2>
 
-<%= form_tag(controller: "statuses", action: "upload_csv_file", multipart: true, method: "post") do %>
+<%= form_tag({action: :upload_csv_file}, multipart: true) do %>
 
 <div class="field">
 <%= file_field_tag 'csv_file' %>
