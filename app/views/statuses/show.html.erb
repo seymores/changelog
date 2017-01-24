@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Object:</strong>
+  <%= @status.object_id %>
+</p>
+
+<p>
+  <strong>Object type:</strong>
+  <%= @status.object_type %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @status.timestamp %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @status.state %>
+</p>
+
+<%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Back', statuses_path %>

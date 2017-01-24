@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  object_id: 
+  object_type: MyString
+  timestamp: 2017-01-24 16:24:53
+  state: 
+
+two:
+  object_id: 
+  object_type: MyString
+  timestamp: 2017-01-24 16:24:53
+  state: 
