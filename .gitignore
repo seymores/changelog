@@ -19,3 +19,5 @@
 *.swp
 
 data.csv
+
+config/secrets.yml
