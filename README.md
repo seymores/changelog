@@ -12,25 +12,12 @@ Please set production database information in `config/secrets.yml`.
 
 ## Upload CSV Data
 
-See sample data file here.
+Server will batch process the [uploaded](http://changelogdemo.seymores.com/statuses/upload) data from the csv file using [activerecord-import](https://github.com/zdennis/activerecord-import).
+See sample data file [here](https://raw.githubusercontent.com/seymores/changelog/master/data.csv). 
 
+## Status Query
 
-Things you may want to cover:
+User [can query](http://changelogdemo.seymores.com/statuses/query) for data by ID, type and timestamp. The timestamp will display states result in JSON format.
 
-* Ruby version
+![Status query](https://raw.githubusercontent.com/seymores/changelog/master/public/screenshots/screen2.png)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
