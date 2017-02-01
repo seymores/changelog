@@ -1,22 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Object:</strong>
-  <%= @status.object_id %>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <td><strong>#ID:</strong></td>
+      <td><%= @status.object_id %></td>
+    </tr>
+    <tr>
+      <td><strong>Type:</strong></td>
+      <td><%= @status.object_type %></td>
+    </tr>
+    <tr>
+      <td><strong>Timestamp:</strong></td>
+      <td><%= @status.timestamp %></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>
-  <strong>Object type:</strong>
-  <%= @status.object_type %>
+  Last updated <%= time_ago_in_words(@status.updated_at) %>
 </p>
 
-<p>
-  <strong>Timestamp:</strong>
-  <%= @status.timestamp %>
-</p>
-
-<p>
-  <strong>State:</strong>
+<p class="state_display">
   <%= @status.state %>
 </p>
 

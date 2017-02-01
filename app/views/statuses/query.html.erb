@@ -5,13 +5,14 @@
 <div class="field">
   <!-- http://apidock.com/rails/ActionView/Helpers/FormTagHelper/select_tag -->
   <%= label_tag "Object ID" %>
-  <%= text_field_tag :object_id %>
+  <%= text_field_tag :object_id, params[:object_id] %>
 </div>
 
 <div class="field">
   <!-- http://apidock.com/rails/ActionView/Helpers/FormTagHelper/select_tag -->
   <%= label_tag "Object type" %>
-  <%= text_field_tag :object_type %>
+  <!-- <%= text_field_tag :object_type, params[:object_type] %> -->
+  <%= select_tag :object_type, options_for_select(Status.uniq.pluck(:object_type), params[:object_type]) %>
 </div>
 
 <div class="field">
@@ -21,7 +22,8 @@
 </div>
 
 <div class="actions">
-    <%= submit_tag("Query") %>
+    <%= submit_tag("Query") %> or
+    <%= link_to 'Back', statuses_path %>
 </div>
 <% end %>
 
