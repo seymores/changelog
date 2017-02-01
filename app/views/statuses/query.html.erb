@@ -1,24 +1,23 @@
 <h2> Query Status </h2>
+<br/>
 
 <%= form_tag({action: :query}, method: :get) do %>
 
 <div class="field">
-  <!-- http://apidock.com/rails/ActionView/Helpers/FormTagHelper/select_tag -->
-  <%= label_tag "Object ID" %>
+  <%= label_tag "#ID" %>
   <%= text_field_tag :object_id, params[:object_id] %>
 </div>
 
 <div class="field">
-  <!-- http://apidock.com/rails/ActionView/Helpers/FormTagHelper/select_tag -->
-  <%= label_tag "Object type" %>
+  <%= label_tag "Type" %>
   <!-- <%= text_field_tag :object_type, params[:object_type] %> -->
-  <%= select_tag :object_type, options_for_select(Status.uniq.pluck(:object_type), params[:object_type]) %>
+  <%= select_tag :object_type, options_for_select(Status.distinct.pluck(:object_type), params[:object_type]) %>
 </div>
 
 <div class="field">
   <%= label_tag "Timestamp" %>
-  <%= select_datetime DateTime.now, :prefix => 'ts'  %>
-  <%= select_second DateTime.now, :prefix => 'ts'  %>
+  <%= select_datetime @timestamp, :prefix => 'ts'  %>
+  <%= select_second @timestamp, :prefix => 'ts' %>
 </div>
 
 <div class="actions">
@@ -29,4 +28,8 @@
 
 <hr>
 
-<%= @state_result %>
+<% if @state_result.present? %>
+<p class="state_display">
+  <%= @state_result %>
+</p>
+<% end %>
