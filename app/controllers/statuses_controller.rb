@@ -71,7 +71,6 @@ class StatusesController < ApplicationController
   end
 
   def query
-
     object_type = params[:object_type]
     object_id = params[:object_id]
     timestamp = Time.new(params[:ts][:year].to_i,
@@ -81,11 +80,15 @@ class StatusesController < ApplicationController
                             params[:ts][:minute].to_i,
                             params[:ts][:second].to_i)
 
-    result = Status.where(object_id: object_id, object_type: object_type).
+    statuses = Status.arel_table
+
+    # result = Status.where(object_id: object_id,).
+    result = Status.where(object_id: object_id).
+                    where(statuses[:object_type].matches(object_type)).
                     where("timestamp <= ?", timestamp).
                     order("timestamp DESC")
 
-    # puts ">>>>>>>>>>> #{result.size}, ts = #{timestamp}"
+    # logger.debug ">>>>>>>>>>> #{result.size}, ts = #{timestamp}"
 
     @state_result = {}
 
