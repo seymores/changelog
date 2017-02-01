@@ -26,4 +26,5 @@
 </p>
 
 <%= link_to 'Edit', edit_status_path(@status) %> |
+<%= link_to 'Destroy', @status, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', statuses_path %>
