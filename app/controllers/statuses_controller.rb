@@ -100,6 +100,11 @@ class StatusesController < ApplicationController
       @state_result = @state_result.merge(s.state)
     end
 
+    respond_to do |format|
+      format.html { render :query }
+      format.json  { render json: @state_result }
+    end
+
   end
 
   private

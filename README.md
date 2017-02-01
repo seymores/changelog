@@ -17,7 +17,8 @@ See sample data file [here](https://raw.githubusercontent.com/seymores/changelog
 
 ## Status Query
 
-User [can query](http://changelogdemo.seymores.com/statuses/query) for data by ID, type and timestamp. The timestamp will display states result in JSON format.
+User [can query](http://changelogdemo.seymores.com/statuses/query) for data by ID, type and timestamp.
+JSON format result is available, see the special link at bottom right.
 
 ![Status query](https://raw.githubusercontent.com/seymores/changelog/master/public/screenshots/screen2.png)
 

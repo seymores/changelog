@@ -31,5 +31,8 @@
 <% if @state_result.present? %>
 <p class="state_display">
   <%= @state_result %>
+  <span class="json_format_link">
+  <%= link_to "In JSON format", current_url(:format=>:json), class: 'in_json_link' %>
+  </span>
 </p>
 <% end %>
