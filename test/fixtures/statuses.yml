@@ -1,13 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  object_id: 
-  object_type: MyString
-  timestamp: 2017-01-24 16:24:53
-  state: 
+  object_id: 1
+  object_type: Document
+  timestamp: 2017-01-24 17:26:55
+  state: "{\"customer_name\":\"Jack\",\"customer_address\":\"Trade St.\",\"status\":\"unpaid\"}"
 
 two:
-  object_id: 
-  object_type: MyString
-  timestamp: 2017-01-24 16:24:53
-  state: 
+  object_id: 1
+  object_type: Document
+  timestamp: 2017-01-24 17:32:14
+  state: "{\"status\":\"paid\",\"ship_date\":\"2017-01-18\",\"shipping_provider\":\"DHL\"}"
+
+three:
+  object_id: 1
+  object_type: Receipt
+  timestamp: 2017-01-24 17:20:55
+  state: "{\"status\":\"paid\"}"
+
+four:
+  object_id: 1
+  object_type: Receipt
+  timestamp: 2017-01-24 16:16:55
+  state: "{\"order_id\":7,\"product_ids\":[1,5,3],\"status\":\"unpaid\",\"total\":2500}"

@@ -8,6 +8,7 @@ class StatusesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get statuses_url
     assert_response :success
+    assert_select 'title', "Changelog"
   end
 
   test "should get new" do
@@ -36,6 +37,12 @@ class StatusesControllerTest < ActionDispatch::IntegrationTest
   test "should update status" do
     patch status_url(@status), params: { status: { object_id: @status.object_id, object_type: @status.object_type, state: @status.state, timestamp: @status.timestamp } }
     assert_redirected_to status_url(@status)
+  end
+
+  test "should upload status data file" do
+    assert_difference('Status.count', 7) do
+      post "/statuses/upload_csv_file", params: { csv_file: fixture_file_upload('data.csv', 'text/plain') }
+    end
   end
 
   test "should destroy status" do
