@@ -40,7 +40,8 @@ class StatusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should upload status data file" do
-    assert_difference('Status.count', 7) do
+    data_file_count = File.read("data.csv").lines.count
+    assert_difference('Status.count', data_file_count) do
       post "/statuses/upload_csv_file", params: { csv_file: fixture_file_upload('data.csv', 'text/plain') }
     end
   end
