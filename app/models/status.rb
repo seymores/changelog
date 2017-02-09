@@ -2,7 +2,7 @@ class Status < ApplicationRecord
     validates :object_id, :object_type, :timestamp, :state, presence: true
 
     def self.import_csv(csv_file)
-        text = File.read(csv_file.path).gsub(/\\"/, '""')
+        text = File.read(csv_file).gsub(/\\"/, '""')
         csv = CSV.parse(text)
         data = []
 
